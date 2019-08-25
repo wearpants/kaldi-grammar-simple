@@ -3,18 +3,17 @@
 from dragonfly import *
 
 import keyboard
-import words
+import dictation
 import programs
 
 release = Key("shift:up, ctrl:up, alt:up")
 
 alternatives = []
 alternatives.append(RuleRef(rule=keyboard.KeystrokeRule()))
-#alternatives.append(RuleRef(rule=keyboard.DigitRule()))
-alternatives.append(RuleRef(rule=words.FormatRule()))
-alternatives.append(RuleRef(rule=words.ReFormatRule()))
-alternatives.append(RuleRef(rule=words.NopeFormatRule()))
-alternatives.append(RuleRef(rule=words.PhraseFormatRule()))
+#alternatives.append(RuleRef(rule=words.FormatRule()))
+#alternatives.append(RuleRef(rule=words.ReFormatRule()))
+#alternatives.append(RuleRef(rule=words.NopeFormatRule()))
+#alternatives.append(RuleRef(rule=words.PhraseFormatRule()))
 alternatives.append(RuleRef(rule=programs.ProgramsRule()))
 root_action = Alternative(alternatives)
 
@@ -41,6 +40,8 @@ class RepeatRule(CompoundRule):
 
 grammar = Grammar("root rule")
 grammar.add_rule(RepeatRule())  # Add the top-level rule.
+grammar.add_rule(dictation.DictationRule())
+grammar.add_rule(dictation.DigitsRule())
 grammar.load()  # Load the grammar.
 
 def unload():
