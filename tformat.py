@@ -23,7 +23,7 @@ def format_snakeword(text):
     return formatted
 
 
-def format_score(text):
+def format_under(text):
     return '_'.join(text)
 
 
@@ -43,10 +43,6 @@ def format_abspath(text):
     return '/' + format_relpath(text)
 
 
-def format_scoperesolve(text):
-    return '::'.join(text)
-
-
 def format_jumble(text):
     return ''.join(text)
 
@@ -59,12 +55,8 @@ def format_dashword(text):
     return '-'.join(text)
 
 
-def format_natword(text):
+def format_plain(text):
     return ' '.join(text)
-
-
-def format_broodingnarrative(text):
-    return ''
 
 
 def format_sentence(text):

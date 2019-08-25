@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[dev-packages]
+
+[requires]
+python_version = "2.7"
+
+[packages]
+numpy = "<1.17.0"
+
+[packages.dragonfly2]
+extras = [ "kaldi",]
+
+[packages.kaldi-active-grammar]
+git = "https://github.com/daanzu/kaldi-active-grammar.git"

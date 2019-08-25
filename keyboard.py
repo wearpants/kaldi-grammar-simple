@@ -48,17 +48,17 @@ def cancel_and_sleep(text=None, text2=None):
 
 # For repeating of characters.
 specialCharMap = {
-    "(bar|vertical bar|pipe)": "|",
+    "(bar|pipe)": "|",
     "(dash|minus|hyphen)": "-",
-    "dit": ".",
+    "(dot|dit)": ".",
     "comma": ",",
     "backslash": "\\",
     "underscore": "_",
     "(star|asterisk)": "*",
     "colon": ":",
     "(semicolon|semi colon)": ";",
-    #"at": "@",
-    "location": "@",
+    "at sign": "@",
+    #"location": "@",
     "[double] quote": '"',
     "single quote": "'",
     "hash": "#",
@@ -106,7 +106,6 @@ specialCharMap = {
 # Modifiers for the press-command.
 modifierMap = {
     "alt": "a",
-    "angry": "a",
     "control": "c",
     "shift": "s",
     "super": "w",
@@ -115,7 +114,6 @@ modifierMap = {
 # Modifiers for the press-command, if only the modifier is pressed.
 singleModifierMap = {
     "alt": "alt",
-    "angry": "alt",
     "control": "ctrl",
     "shift": "shift",
     "super": "win",
@@ -123,30 +121,30 @@ singleModifierMap = {
 
 letterMap = {
     "(alpha|arch)": "a",
-    "(bravo|brav) ": "b",
-    "(charlie|turley|char) ": "c",
-    "(delta|del) ": "d",
+    "(bravo|brav|beta) ": "b",
+    "(charlie|turley) ": "c",
+    "(delta) ": "d",
     "(echo|every) ": "e",
     "(foxtrot|fox) ": "f",
-    "(golf|gang) ": "g",
-    "(hotel) ": "h",
-    "(india|indigo) ": "i",
+    "(golf|gang|gobo) ": "g",
+    "(hotel|hot) ": "h",
+    "(india|igloo) ": "i",
     "(juliet|julia) ": "j",
     "(kilo) ": "k",
     "(lima|line) ": "l",
-    "(mike) ": "m",
-    "(november|noy) ": "n",
+    "(mike|mary) ": "m",
+    "(november|novy) ": "n",
     "(Oscar|osh) ": "o",
     "(papa|poppa) ": "p",
-    "(quebec|queen) ": "q",
-    "(romeo) ": "r",
+    "(quebec|queen|queer) ": "q",
+    "(romeo|ralph) ": "r",
     "(sierra) ": "s",
     "(tango|tarnish) ": "t",
     "(uniform) ": "u",
     "(victor) ": "v",
     "(whiskey) ": "w",
     "(x-ray) ": "x",
-    "(yankee) ": "y",
+    "(yankee|yup|yep) ": "y",
     "(zulu|zipper) ": "z",
 }
 #letterMap = {
@@ -182,7 +180,7 @@ letterMap = {
 # generate uppercase versions of every letter
 upperLetterMap = {}
 for letter in letterMap:
-    upperLetterMap["(upper|sky) " + letter] = letterMap[letter].upper()
+    upperLetterMap["(upper|caps) " + letter] = letterMap[letter].upper()
 letterMap.update(upperLetterMap)
 
 numberMap = {
@@ -258,21 +256,20 @@ grammarCfg.cmd.map = Item(
         "doc home": Key("c-home/3"),
         "doc end": Key("c-end/3"),
         # Functional keys.
-        "space": release + Key("space"),
-        "space [<n>]": release + Key("space:%(n)d"),
-        "(enter|slap|slop) [<n>]": release + Key("enter:%(n)d"),
+        "(space|suss)": release + Key("space"),
+        "(space|suss) [<n>]": release + Key("space:%(n)d"),
+        "(enter|slap) [<n>]": release + Key("enter:%(n)d"),
         "tab [<n>]": Key("tab:%(n)d"),
-        ###"delete [<n>]": Key("del/3:%(n)d"),
+        "(delete|del) [<n>]": Key("del:%(n)d"),
         "delete [this] line": Key("home, s-end, del"),  # @IgnorePep8
-        "backspace [<n>]": release + Key("backspace:%(n)d"),
+        "(backspace|back|muss) [<n>]": release + Key("backspace:%(n)d"),
         "application key": release + Key("apps/3"),
         "win key": release + Key("win/3"),
-        #"paste [that]": Function(paste_command),
-        #"copy [that]": Function(copy_command),
+        "paste [that]": release + Key("c-v/3"),
+        "copy [that]": release + Key("c-c/3"),
         "cut [that]": release + Key("c-x/3"),
         "select all": release + Key("c-a/3"),
         "[(hold|press)] alt": Key("alt:down/3"),
-        "[(hold|press)] angry": Key("alt:down/3"),
         "release alt": Key("alt:up"),
         "[(hold|press)] shift": Key("shift:down/3"),
         "release shift": Key("shift:up"),
@@ -288,7 +285,7 @@ grammarCfg.cmd.map = Item(
         #"quotes": Key("dquote/3, dquote/3, left/3"),
         #"backticks": Key("backtick:2, left"),
         #"single quotes": Key("squote, squote, left/3"),
-        "squiggle": Text("~"),
+        "(squiggle|tilda)": Text("~"),
         "backtick": Key("backtick"),
         # Shorthand multiple characters.
         "double <char>": Text("%(char)s%(char)s"),
@@ -309,39 +306,29 @@ grammarCfg.cmd.map = Item(
         'lace [<n>]':   Key('lbrace:%(n)d'),
         '(lack|lair) [<n>]':   Key('lbracket:%(n)d'),
         #'(laip|len) [<n>]':   Key('lparen:%(n)d'),
-        'len [<n>]':    Key('lparen:%(n)d'),
+        '(lip|lparen) [<n>]':    Key('lparen:%(n)d'),
         'rangle [<n>]': Key('rangle:%(n)d'),
         'race [<n>]':   Key('rbrace:%(n)d'),
         '(rack|rare) [<n>]':   Key('rbracket:%(n)d'),
         #'(raip|ren|wren) [<n>]':   Key('rparen:%(n)d'),
-        '(ren|wren) [<n>]':   Key('rparen:%(n)d'),
+        '(rip|rparen) [<n>]':   Key('rparen:%(n)d'),
 
-        "act [<n>]": Key("escape:%(n)d"),
-        "calm [<n>]": Key("comma:%(n)d"),
-        'tunnel': Key('space,bar,space'),
-        'care':        Key('home'),
-        '(doll|dole)': Key('end'),
-        'chuck [<n>]':       Key('del:%(n)d'),
-        'scratch [<n>]':     Key('backspace:%(n)d'),
-        #"visual": Key("v"),
-        "visual line": Key("s-v"),
-        "visual block": Key("c-v"),
         "doc save": Key("c-s"),
-        "arrow": Text("->"),
+        "doc open": Key("c-o"),
+        "doc new": Key("c-n"),
+        "doc quit": Key("c-q"),
+        "undo": Key("c-z"),
 
-        'gope [<n>]':  Key('pgup:%(n)d'),
-        'drop [<n>]':  Key('pgdown:%(n)d'),
+        '(left wor) [<n>]':  Key('c-left:%(n)d'),
+        '(right wor) [<n>]':  Key('c-right:%(n)d'),
+        '(backwor) [<n>]': Key('c-backspace:%(n)d'),
+        '(delwor|del wor) [<n>]': Key('c-delete:%(n)d'),
 
-        'lope [<n>]':  Key('c-left:%(n)d'),
-        '(yope|rope) [<n>]':  Key('c-right:%(n)d'),
-        #'(hill scratch|hatch) [<n>]': Key('c-backspace:%(n)d'),
-
-        'hexadecimal': Text("0x"),
         'suspend': Key('c-z'),
 
         'word <text>': Function(handle_word),
         'number <num>': Text("%(num)d"),
-        'change <text> to <text2>': Key("home, slash") + Text("%(text)s") + Key("enter, c, e") + Text("%(text2)s") + Key("escape"),
+        #'change <text> to <text2>': Key("home, slash") + Text("%(text)s") + Key("enter, c, e") + Text("%(text2)s") + Key("escape"),
 
         # Microphone sleep/cancel started dictation.
         "[<text>] (go to sleep|cancel and sleep) [<text2>]": Function(cancel_and_sleep),  # @IgnorePep8
@@ -372,4 +359,12 @@ class KeystrokeRule(MappingRule):
         "n": 1,
     }
 
-
+#class DigitRule(CompoundRule):
+#    spec = "digits <digits>"
+#    extras = [
+#        Repetition(IntegerRef("digit", 1, 20), name="digits"),
+#    ]
+#
+#    def _process_recognition(self, node, extras):
+#        for action in extras["digits"]:
+#            action.execute()
