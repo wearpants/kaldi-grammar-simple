@@ -133,7 +133,7 @@ letterMap = {
     "(kilo) ": "k",
     "(lima|line) ": "l",
     "(mike|mary) ": "m",
-    "(november|novy) ": "n",
+    "(november|novy|nancy) ": "n",
     "(Oscar|osh) ": "o",
     "(papa|poppa) ": "p",
     "(quebec|queen|queer) ": "q",
@@ -321,7 +321,7 @@ grammarCfg.cmd.map = Item(
 
         '(left wor) [<n>]':  Key('c-left:%(n)d'),
         '(right wor) [<n>]':  Key('c-right:%(n)d'),
-        '(backwor) [<n>]': Key('c-backspace:%(n)d'),
+        '(backwor|mushwor|mush word) [<n>]': Key('c-backspace:%(n)d'),
         '(delwor|del wor) [<n>]': Key('c-delete:%(n)d'),
 
         'suspend': Key('c-z'),
