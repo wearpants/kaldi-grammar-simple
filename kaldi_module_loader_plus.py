@@ -132,7 +132,7 @@ def main():
         model_dir='kaldi_model_zamia',
         # tmp_dir='kaldi_tmp',  # default for temporary directory
         # vad_aggressiveness=3,  # default aggressiveness of VAD
-        vad_padding_ms=500,
+        vad_padding_ms=300,
         # vad_padding_start_ms=300,  # default ms of required silence before VAD
         # vad_padding_end_ms=300,  # default ms of required silence after VAD
         # vad_complex_padding_end_ms=1000,  # default ms of required silence after VAD for complex utterances

@@ -71,7 +71,7 @@ specialCharMap = {
     "space": " ",
 
     "bang": "!",
-    "question": "?",
+    "question [mark]": "?",
     "caret": "^",
     # some other symbols I haven't imported yet, lazy sorry
     # 'ampersand': Key('ampersand'),
