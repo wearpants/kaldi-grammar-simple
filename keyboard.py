@@ -319,8 +319,8 @@ grammarCfg.cmd.map = Item(
         "doc quit": Key("c-q"),
         "undo": Key("c-z"),
 
-        '(left wor) [<n>]':  Key('c-left:%(n)d'),
-        '(right wor) [<n>]':  Key('c-right:%(n)d'),
+        '(left wor|left word) [<n>]':  Key('c-left:%(n)d'),
+        '(right wor|right word) [<n>]':  Key('c-right:%(n)d'),
         '(backwor|mushwor|mush word) [<n>]': Key('c-backspace:%(n)d'),
         '(delwor|del wor) [<n>]': Key('c-delete:%(n)d'),
 

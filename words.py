@@ -32,7 +32,7 @@ def handle_word(text):
 
 
 class NopeFormatRule(CompoundRule):
-    spec = ('nope')
+    spec = ('scratch that')
 
     def value(self, node):
         global lastFormatRuleLength
@@ -40,7 +40,7 @@ class NopeFormatRule(CompoundRule):
         return Key('backspace:' + str(lastFormatRuleLength))
 
 class ReFormatRule(CompoundRule):
-    spec = ('that was [upper | natural] ( proper | camel | rel-path | abs-path | under | sentence | '
+    spec = ('reformat [upper | natural] ( proper | camel | rel-path | abs-path | under | sentence | '
             'jumble | dotword | dashword | plain | snakeword | title)')
 
     def value(self, node):
@@ -113,7 +113,7 @@ class FormatRule(CompoundRule):
             return Text(formatted)
 
 class PhraseFormatRule(CompoundRule):
-    spec = ('[start] [new] phrase [<dictation>]')
+    spec = ('[start] new phrase [<dictation>]')
     extras = [Dictation(name='dictation')]
 
     def value(self, node):

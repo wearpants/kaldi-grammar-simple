@@ -5,15 +5,16 @@ from dragonfly import *
 import keyboard
 import dictation
 import programs
+import words
 
 release = Key("shift:up, ctrl:up, alt:up")
 
 alternatives = []
 alternatives.append(RuleRef(rule=keyboard.KeystrokeRule()))
-#alternatives.append(RuleRef(rule=words.FormatRule()))
-#alternatives.append(RuleRef(rule=words.ReFormatRule()))
-#alternatives.append(RuleRef(rule=words.NopeFormatRule()))
-#alternatives.append(RuleRef(rule=words.PhraseFormatRule()))
+alternatives.append(RuleRef(rule=words.FormatRule()))
+alternatives.append(RuleRef(rule=words.ReFormatRule()))
+alternatives.append(RuleRef(rule=words.NopeFormatRule()))
+alternatives.append(RuleRef(rule=words.PhraseFormatRule()))
 alternatives.append(RuleRef(rule=programs.ProgramsRule()))
 root_action = Alternative(alternatives)
 

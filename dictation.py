@@ -20,8 +20,8 @@ from dragonfly.engines.backend_kaldi.dictation import CloudDictation
 from keyboard import numberMap
 
 class DictationRule(MappingRule):
-  mapping = { "dictation <dictation>": Text("%(dictation)s") }
-  extras = [ CloudDictation("dictation") ]
+  mapping = { "dictation <clouddict>": Text("%(clouddict)s") }
+  extras = [ CloudDictation("clouddict") ]
 
 
 class DigitsRule(CompoundRule):
