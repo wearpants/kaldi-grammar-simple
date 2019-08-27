@@ -61,3 +61,7 @@ def format_plain(text):
 
 def format_sentence(text):
     return ' '.join([text[0].capitalize()] + text[1:])
+
+
+def format_title(text):
+    return ' '.join((t.capitalize() for t in text))
