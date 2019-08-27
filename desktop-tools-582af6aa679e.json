@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "desktop-tools",
+  "private_key_id": "582af6aa679e24ada593f1cf3ec406a5e1568fdd",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDV6izb331Jjyh6\n3zMm0bjv62HWn3hcEBmCHXB1QBr+t2fJKH27iCgFEhin0n0Bf0dRf/BrIl9lykiB\nBroVTYK22FQtQ+fJW2Hr/lfXrqb5A1qgiWIvnymvp42vw0JpTC+KD2cAqep+D9Ru\nDnLcEOM0molJ5JjiT6/cSp+fVcl4PY9dJ/jeQ65eZmKns0mpB0jxzFgCXKr1hRbc\nyTMdyCE/OL2JK8iH1PFRsXsYdDOp/pwpgsrwVtvBFB8LI858pdzUhPZYl5CsYJWC\nv1CD7F6LYh/pKlwy+BfuCTXLeGkIAHpW15cf9NGLh2D4XIpHPI5tH5w1pTCyA/GD\nXmyTiN7JAgMBAAECggEAIlmgy3aSEVUGNzjj52NnsvXAIm09hWxmaYudqo5ZPLbU\ng9ZXM7J+WVYZvx/gnUluzopgtRYcwzqI4FiQBWoKx/QUDFK/roit6u35oB5Lx2fU\n+Tt7w1GSfuzv0R4QlNpm4Itu9bR9/bFADPjlU9ZNuH2U9y3YqQVfztxC0Udpez+o\nP3QojJkC8juTNH97n/CM1J3pQsDiP5bmqHiKJzOlws80pRjpszL+LuqlNs2BMTOB\nIiVxq+V0OQf/nTiq84n2bxv2Oijno8C3jI6Y9iFW8e4KZZQ/ELBZf/UEzkvbIodx\nGVgzil8fwg9wvY+W4O/trFOd2wkUKTInoJM1Akw5ewKBgQDrPHO+LQI2XBDF2PtP\njOr//LyEeFJSRX5y/Cl8YJ2ptdHUIne9lsKHw75SRJsYFCrW/zZ1MfYgZpdpqAbw\nZQYdPhCds+cB7QH0dlmXVFLg0ugCj70O01jvkGREvtPlWPblrTpla0zG4xsZvIbj\nrDWcXfr7l8pErFSdlP5FkVNaqwKBgQDoy+5dGE1YxuwfFhTtPDp2bRZVFwyUjtV5\n0kRStKP4iYMkkfo1B9UCSCKVWI1DqCsI4FV6TQ+8hX5kP1OpP2ktpdOqpX9QpfDJ\neJxjDRLzpCQba64Q5bL6gy65arfumzO0qglXUMh5CRavVOX1aHyr22MXam+rR9r4\n97NP2fbsWwKBgHKLNTDdab5ehixQw86wp52Oy50VmcBF5pTHBMxzn1IMHuhVAElp\nJ8BEKGCW146aA2I9U58tfNO6IPBpyTc1egyzNBQWjd36MoF/P5DYlqKzEBZvN3gI\nob3FaY2v/i4na9Ha0ByiavhNjdyyWFx0doZ1nMj12KAn6evxqP7nDNeRAoGBAORP\nbLycou7YWKa8L1XjZarTnb1h15Ky6qaJEzzRsKaFprps+CieP8f3GwPBTvn1qg8Q\nhIRno3FOswB6IwCwEeUU5xxLJyvfMuFEiouSPO36IvdJifNEc13A3kg2Y6F9UR50\nTKj3r0UVJsxZxRYDnZGmne5PEqm21QirVY6Qw9xVAoGBANGagWm+6ybM9Dfc/bwD\nI25yA/W+VpIXCUYYe25kUw36ZC3vtTDFS5y6Pz0oQaVB6SPEmY0tVQnAL7CX8lBX\nAABnbW+YkdqmzmvK5r/7fjhQXsl6+MLu6PbHQWIv7K7+hgW9hiyvurLP71qB5AP9\nX7kjCVRswshXhsnh/0hjyqsA\n-----END PRIVATE KEY-----\n",
+  "client_email": "dragonfly@desktop-tools.iam.gserviceaccount.com",
+  "client_id": "101377002237707711750",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dragonfly%40desktop-tools.iam.gserviceaccount.com"
+}
