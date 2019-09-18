@@ -6,6 +6,7 @@ import keyboard
 import dictation
 import programs
 import words
+import custom
 
 release = Key("shift:up, ctrl:up, alt:up")
 
@@ -16,6 +17,7 @@ alternatives.append(RuleRef(rule=words.ReFormatRule()))
 alternatives.append(RuleRef(rule=words.NopeFormatRule()))
 alternatives.append(RuleRef(rule=words.PhraseFormatRule()))
 alternatives.append(RuleRef(rule=programs.ProgramsRule()))
+alternatives.append(RuleRef(rule=custom.CustomRule()))
 root_action = Alternative(alternatives)
 
 sequence = Repetition(root_action, min=1, max=16, name="sequence")

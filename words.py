@@ -40,7 +40,7 @@ class NopeFormatRule(CompoundRule):
         return Key('backspace:' + str(lastFormatRuleLength))
 
 class ReFormatRule(CompoundRule):
-    spec = ('reformat [upper | natural] ( proper | camel | rel-path | abs-path | under | sentence | '
+    spec = ('reformat [upper | natural] ( proper | camel | rel-path | abs-path | underline | sentence | '
             'jumble | dotword | dashword | plain | snakeword | title)')
 
     def value(self, node):
@@ -69,7 +69,7 @@ class ReFormatRule(CompoundRule):
         return Text(formatted)
 
 class FormatRule(CompoundRule):
-    spec = ('[upper | natural] ( proper | camel | rel-path | abs-path | under | sentence | '
+    spec = ('[upper | natural] ( proper | camel | rel-path | abs-path | underline | sentence | '
             'jumble | dotword | dashword | plain | snakeword | title) [<dictation>] [bomb]')
     extras = [Dictation(name='dictation')]
     exported = False

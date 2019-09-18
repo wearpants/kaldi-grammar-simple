@@ -23,7 +23,7 @@ def format_snakeword(text):
     return formatted
 
 
-def format_under(text):
+def format_underline(text):
     return '_'.join(text)
 
 
@@ -34,7 +34,7 @@ def format_camel(text):
 def format_proper(text):
     return ''.join(word.capitalize() for word in text)
 
-
+   
 def format_relpath(text):
     return '/'.join(text)
 

@@ -124,22 +124,22 @@ letterMap = {
     "(bravo|brav|beta) ": "b",
     "(charlie|turley) ": "c",
     "(delta) ": "d",
-    "(echo|every) ": "e",
-    "(foxtrot|fox) ": "f",
+    "(echo) ": "e",
+    "(foxtrot) ": "f",
     "(golf|gang|gobo) ": "g",
     "(hotel|hot) ": "h",
     "(india|igloo) ": "i",
     "(juliet|julia) ": "j",
     "(kilo) ": "k",
-    "(lima|line) ": "l",
+    "(lima|line|lion) ": "l",
     "(mike|mary) ": "m",
-    "(november|novy|nancy) ": "n",
-    "(Oscar|osh) ": "o",
+    "(novy|nancy) ": "n",
+    "(Oscar) ": "o",
     "(papa|poppa) ": "p",
-    "(quebec|queen|queer) ": "q",
+    "(queen|queer) ": "q",
     "(romeo|ralph) ": "r",
     "(sierra) ": "s",
-    "(tango|tarnish) ": "t",
+    "(tango) ": "t",
     "(uniform) ": "u",
     "(victor) ": "v",
     "(whiskey) ": "w",
@@ -206,7 +206,7 @@ controlKeyMap = {
     "home": "home",
     "end": "end",
     "space": "space",
-    "(enter|return)": "enter",
+    "(enter|slap|lap)": "enter",
     "escape": "escape",
     "tab": "tab",
     "backspace": "backspace"
@@ -258,11 +258,14 @@ grammarCfg.cmd.map = Item(
         # Functional keys.
         "(space|suss)": release + Key("space"),
         "(space|suss) [<n>]": release + Key("space:%(n)d"),
-        "(enter|slap) [<n>]": release + Key("enter:%(n)d"),
+        "(enter|slap|lap) [<n>]": release + Key("enter:%(n)d"),
         "tab [<n>]": Key("tab:%(n)d"),
         "(delete|del) [<n>]": Key("del:%(n)d"),
-        "delete [this] line": Key("home, s-end, del"),  # @IgnorePep8
-        "(backspace|back|muss) [<n>]": release + Key("backspace:%(n)d"),
+        "(delete|del) line": Key("home, s-end, del"),  # @IgnorePep8
+        "select line": Key("home, s-end"),  # @IgnorePep8
+        "copy line": Key("home, s-end") + release + Key("c-c/3"),  # @IgnorePep8
+        "cut line": Key("home, s-end") + release + Key("c-x/3"),  # @IgnorePep8                
+        "(backspace|back|muss|mush) [<n>]": release + Key("backspace:%(n)d"),
         "application key": release + Key("apps/3"),
         "win key": release + Key("win/3"),
         "paste [that]": release + Key("c-v/3"),
@@ -321,8 +324,8 @@ grammarCfg.cmd.map = Item(
 
         '(left wor|left word) [<n>]':  Key('c-left:%(n)d'),
         '(right wor|right word) [<n>]':  Key('c-right:%(n)d'),
-        '(backwor|mushwor|mush word) [<n>]': Key('c-backspace:%(n)d'),
-        '(delwor|del wor) [<n>]': Key('c-delete:%(n)d'),
+        '(backwor|mushwor|mush word|muss word|mussword) [<n>]': Key('c-backspace:%(n)d'),
+        '(delwor|del wor|delword|del word) [<n>]': Key('c-delete:%(n)d'),
 
         'suspend': Key('c-z'),
 
