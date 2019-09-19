@@ -31,7 +31,6 @@ for command in gitcommand_array:
 
 class ProgramsRule(MappingRule):
     mapping = {
-        "just execute": Key("backspace, enter"),
         "command (git|get)": Text("git "),
         "command (git|get) <gitcommand>": Text("git %(gitcommand)s "),
         "command nano": Text("nano "),
@@ -59,9 +58,7 @@ class ProgramsRule(MappingRule):
         'switch window [<n>]': Key('a-tab:%(n)d'),
         'maximize window': Key('a-f10'),
         'minimize window': Key('a-f9'),
-        'code map': Text('map'),
-        'code list': Text('list'),
-        'code string': Text('str'),
+
     }
     extras = [
         Dictation("text"),

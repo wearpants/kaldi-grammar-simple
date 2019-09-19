@@ -68,7 +68,6 @@ specialCharMap = {
     "slash": "/",
     "equal": "=",
     "plus": "+",
-    "space": " ",
 
     "bang": "!",
     "question [mark]": "?",
@@ -120,7 +119,7 @@ singleModifierMap = {
 }
 
 letterMap = {
-    "(alpha|arch)": "a",
+    "(alpha|alpa|arch)": "a",
     "(bravo|brav|beta) ": "b",
     "(charlie|turley) ": "c",
     "(delta) ": "d",
@@ -147,35 +146,6 @@ letterMap = {
     "(yankee|yup|yep) ": "y",
     "(zulu|zipper) ": "z",
 }
-#letterMap = {
-    #"(alpha|arch)": "a",
-    #"(bravo|brav) ": "b",
-    #"(charlie|turley|char) ": "c",
-    #"(delta|del) ": "d",
-    #"(echo|eck) ": "e",
-    #"(foxtrot|fox) ": "f",
-    #"(golf|gang) ": "g",
-    #"(hotel) ": "h",
-    #"(india|indigo|ish) ": "i",
-    #"(juliet|julia) ": "j",
-    #"(kilo) ": "k",
-    #"(lima|lion|line|lie) ": "l",
-    #"(mike) ": "m",
-    #"(november|noy) ": "n",
-    #"(Oscar|osh) ": "o",
-    #"(papa|poppa|pom) ": "p",
-    #"(quebec|quiche|queen) ": "q",
-    #"(romeo|ree) ": "r",
-    #"(sierra|soy) ": "s",
-    #"(tango|tay) ": "t",
-    #"(uniform|umm) ": "u",
-    #"(victor|van) ": "v",
-    #"(whiskey|wes) ": "w",
-    #"(x-ray) ": "x",
-    #"(yankee|yaa) ": "y",
-    #"(zulu) ": "z",
-#}
-
 
 # generate uppercase versions of every letter
 upperLetterMap = {}
@@ -194,22 +164,6 @@ numberMap = {
     "seven": "7",
     "eight": "8",
     "nine": "9",
-}
-
-controlKeyMap = {
-    "left": "left",
-    "right": "right",
-    "up": "up",
-    "down": "down",
-    "page up": "pgup",
-    "page down": "pgdown",
-    "home": "home",
-    "end": "end",
-    "space": "space",
-    "(enter|slap|lap)": "enter",
-    "escape": "escape",
-    "tab": "tab",
-    "backspace": "backspace"
 }
 
 # F1 to F12. (do these actually work?)
@@ -231,7 +185,6 @@ functionKeyMap = {
 pressKeyMap = {}
 pressKeyMap.update(letterMap)
 pressKeyMap.update(numberMap)
-pressKeyMap.update(controlKeyMap)
 pressKeyMap.update(functionKeyMap)
 
 
@@ -240,32 +193,10 @@ grammarCfg = Config("multi edit")
 grammarCfg.cmd = Section("Language section")
 grammarCfg.cmd.map = Item(
     {
-        # Navigation keys.
-        "up [<n>]": Key("up:%(n)d"),
-        "down [<n>]": Key("down:%(n)d"),
-        "left [<n>]": Key("left:%(n)d"),
-        "right [<n>]": Key("right:%(n)d"),
-        "page up [<n>]": Key("pgup:%(n)d"),
-        "page down [<n>]": Key("pgdown:%(n)d"),
-        #"up <n> (page|pages)": Key("pgup:%(n)d"),
-        #"down <n> (page|pages)": Key("pgdown:%(n)d"),
-        #"left <n> (word|words)": Key("c-left/3:%(n)d/10"),
-        #"right <n> (word|words)": Key("c-right/3:%(n)d/10"),
-        "home": Key("home"),
-        "end": Key("end"),
-        "doc home": Key("c-home/3"),
-        "doc end": Key("c-end/3"),
-        # Functional keys.
-        "(space|suss)": release + Key("space"),
-        "(space|suss) [<n>]": release + Key("space:%(n)d"),
-        "(enter|slap|lap) [<n>]": release + Key("enter:%(n)d"),
-        "tab [<n>]": Key("tab:%(n)d"),
-        "(delete|del) [<n>]": Key("del:%(n)d"),
         "(delete|del) line": Key("home, s-end, del"),  # @IgnorePep8
         "select line": Key("home, s-end"),  # @IgnorePep8
         "copy line": Key("home, s-end") + release + Key("c-c/3"),  # @IgnorePep8
         "cut line": Key("home, s-end") + release + Key("c-x/3"),  # @IgnorePep8                
-        "(backspace|back|muss|mush) [<n>]": release + Key("backspace:%(n)d"),
         "application key": release + Key("apps/3"),
         "win key": release + Key("win/3"),
         "paste [that]": release + Key("c-v/3"),
@@ -293,7 +224,6 @@ grammarCfg.cmd.map = Item(
         # Shorthand multiple characters.
         "double <char>": Text("%(char)s%(char)s"),
         "triple <char>": Text("%(char)s%(char)s%(char)s"),
-        "double escape": Key("escape, escape"),  # Exiting menus.
         # Punctuation and separation characters, for quick editing.
         "colon [<n>]": Key("colon/2:%(n)d"),
         "(semicolon|semi colon) [<n>]": Key("semicolon/2:%(n)d"),
@@ -322,14 +252,9 @@ grammarCfg.cmd.map = Item(
         "doc quit": Key("c-q"),
         "undo": Key("c-z"),
 
-        '(left wor|left word) [<n>]':  Key('c-left:%(n)d'),
-        '(right wor|right word) [<n>]':  Key('c-right:%(n)d'),
-        '(backwor|mushwor|mush word|muss word|mussword) [<n>]': Key('c-backspace:%(n)d'),
-        '(delwor|del wor|delword|del word) [<n>]': Key('c-delete:%(n)d'),
-
         'suspend': Key('c-z'),
 
-        'word <text>': Function(handle_word),
+        'literal <text>': Function(handle_word),
         'number <num>': Text("%(num)d"),
         #'change <text> to <text2>': Key("home, slash") + Text("%(text)s") + Key("enter, c, e") + Text("%(text2)s") + Key("escape"),
 
@@ -361,13 +286,3 @@ class KeystrokeRule(MappingRule):
     defaults = {
         "n": 1,
     }
-
-#class DigitRule(CompoundRule):
-#    spec = "digits <digits>"
-#    extras = [
-#        Repetition(IntegerRef("digit", 1, 20), name="digits"),
-#    ]
-#
-#    def _process_recognition(self, node, extras):
-#        for action in extras["digits"]:
-#            action.execute()

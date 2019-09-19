@@ -31,45 +31,8 @@ def handle_word(text):
             Mimic(' '.join(words[1:])).execute()
 
 
-class NopeFormatRule(CompoundRule):
-    spec = ('scratch that')
-
-    def value(self, node):
-        global lastFormatRuleLength
-        print "erasing previous format of length", lastFormatRuleLength
-        return Key('backspace:' + str(lastFormatRuleLength))
-
-class ReFormatRule(CompoundRule):
-    spec = ('reformat [upper | natural] ( proper | camel | rel-path | abs-path | underline | sentence | '
-            'jumble | dotword | dashword | plain | snakeword | title)')
-
-    def value(self, node):
-        global lastFormatRuleWords
-        words = lastFormatRuleWords
-        words = node.words()[2:] + lastFormatRuleWords
-        print words
-
-        uppercase = words[0] == 'upper'
-        lowercase = words[0] != 'natural'
-
-        if lowercase:
-            words = [word.lower() for word in words]
-        if uppercase:
-            words = [word.upper() for word in words]
-
-        words = [word.split('\\', 1)[0].replace('-', '') for word in words]
-        if words[0].lower() in ('upper', 'natural'):
-            del words[0]
-
-        function = getattr(tformat, 'format_%s' % words[0].lower())
-        formatted = function(words[1:])
-
-        global lastFormatRuleLength
-        lastFormatRuleLength = len(formatted)
-        return Text(formatted)
-
 class FormatRule(CompoundRule):
-    spec = ('[upper | natural] ( proper | camel | rel-path | abs-path | underline | sentence | '
+    spec = ('[upper | natural] ( proper | camel | underline | sentence | '
             'jumble | dotword | dashword | plain | snakeword | title) [<dictation>] [bomb]')
     extras = [Dictation(name='dictation')]
     exported = False
@@ -111,44 +74,3 @@ class FormatRule(CompoundRule):
             return Text(formatted) + Mimic(' '.join(bomb))
         else:
             return Text(formatted)
-
-class PhraseFormatRule(CompoundRule):
-    spec = ('[start] new phrase [<dictation>]')
-    extras = [Dictation(name='dictation')]
-
-    def value(self, node):
-        words = node.words()
-        print "format rule:", words
-
-        leading = (words[0] != 'start')
-        trailing = False #(words[0] != 'end' and words[0] != 'isolated')
-        if words[0] == 'start' or words[0] == 'isolated': words = words[1:]
-        capitalize = (words[0] == 'new')
-        if words[0] == 'new': words = words[1:]
-        words = words[1:]  # delete "phrase"
-
-        if len(words) == 0: return Pause("0")
-
-        formatted = ''
-        addedWords = False
-        for word in words:
-            special = word.split('\\', 1)
-            if(len(special) > 1 and special[1] != 'pronoun' and special[1] != 'determiner'):
-                formatted += special[0]
-            else:
-                if(addedWords): formatted += ' '
-                formatted += special[0]
-                addedWords = True
-        if capitalize: formatted = formatted[:1].capitalize() + formatted[1:]
-        if leading: formatted = ' ' + formatted
-        if trailing: formatted += ' '
-
-        global lastFormatRuleWords
-        lastFormatRuleWords = words
-
-        global lastFormatRuleLength
-        lastFormatRuleLength = len(formatted)
-
-        print "  ->", formatted
-        return Text(formatted)
-
