@@ -15,20 +15,12 @@
 # Copyright (2014) Alex Roper
 # Alex Roper <alex@aroper.net>
 
-def format_snakeword(text):
-    formatted = text[0][0].upper()
-    formatted += text[0][1:]
-    formatted += ('_' if len(text) > 1 else '')
-    formatted += format_score(text[1:])
-    return formatted
-
-
 def format_underline(text):
     return '_'.join(text)
 
 
 def format_camel(text):
-    return text[0] + ''.join([word[0].upper() + word[1:] for word in text[1:]])
+    return  ''.join([word[0].upper() + word[1:] for word in text])
 
 
 def format_proper(text):
@@ -47,11 +39,11 @@ def format_jumble(text):
     return ''.join(text)
 
 
-def format_dotword(text):
+def format_dotted(text):
     return '.'.join(text)
 
 
-def format_dashword(text):
+def format_dashes(text):
     return '-'.join(text)
 
 

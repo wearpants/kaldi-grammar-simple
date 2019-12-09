@@ -1,3 +1,4 @@
+
 # Low-level keyboard input module
 #
 # Based on the work done by the creators of the Dictation Toolbox
@@ -237,14 +238,14 @@ grammarCfg.cmd.map = Item(
 
         'langle [<n>]': Key('langle:%(n)d'),
         'lace [<n>]':   Key('lbrace:%(n)d'),
-        '(lack|lair) [<n>]':   Key('lbracket:%(n)d'),
+        '(lack) [<n>]':   Key('lbracket:%(n)d'),
         #'(laip|len) [<n>]':   Key('lparen:%(n)d'),
-        '(lip|lparen) [<n>]':    Key('lparen:%(n)d'),
+        'lap [<n>]':    Key('lparen:%(n)d'),
         'rangle [<n>]': Key('rangle:%(n)d'),
         'race [<n>]':   Key('rbrace:%(n)d'),
-        '(rack|rare) [<n>]':   Key('rbracket:%(n)d'),
+        '(rack) [<n>]':   Key('rbracket:%(n)d'),
         #'(raip|ren|wren) [<n>]':   Key('rparen:%(n)d'),
-        '(rip|rparen) [<n>]':   Key('rparen:%(n)d'),
+        'rap [<n>]':   Key('rparen:%(n)d'),
 
         "doc save": Key("c-s"),
         "doc open": Key("c-o"),

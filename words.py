@@ -33,7 +33,7 @@ def handle_word(text):
 
 class FormatRule(CompoundRule):
     spec = ('[upper | natural] ( proper | camel | underline | sentence | '
-            'jumble | dotword | dashword | plain | snakeword | title) [<dictation>] [bomb]')
+            'jumble | dotted | dashes | plain | title) [<dictation>] [bomb]')
     extras = [Dictation(name='dictation')]
     exported = False
 
