@@ -138,7 +138,7 @@ def main():
         #vad_complex_padding_end_ms=1000,  # default ms of required silence after VAD for complex utterances
         # input_device_index=None,  # set to an int to choose a non-default microphone
         auto_add_to_user_lexicon=True,  # set to True to possibly use cloud for pronunciations
-        cloud_dictation="gcloud",  # set to 'gcloud' to use cloud dictation
+        cloud_dictation="en-US",  # set to 'gcloud' to use cloud dictation
     )
 
     # Call connect() now that the engine configuration is set.
